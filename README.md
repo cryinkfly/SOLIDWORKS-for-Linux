@@ -14,6 +14,11 @@ ________________________________________________
 You will get more information about this program, then you can visit the original website of SOLIDWORKS with this link: https://www.solidworks.com/
 ________________________________________________
 
+You might want to use other CAD programs, then you can find more programs here:
+
+  - Autodesk Fusion 360: https://github.com/cryinkfly/Fusion-360---Linux-Wine-Version-
+________________________________________________
+
 Also you get more informations about SOLIDWORKS, when you visit my other channels:
 
   - Facebook:  https://www.facebook.com/cryinkfly/
