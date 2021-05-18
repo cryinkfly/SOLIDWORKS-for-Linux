@@ -48,7 +48,7 @@ if [[ 1 -ne $# ]]; then
    echo "The latest version of wintricks will be downloaded and executed."
    wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks &&
    chmod +x winetricks &&
-   WINEPREFIX=~/.fusion360 sh winetricks -q winetricks -q corefonts vcrun2019 msxml6 dxvk win10 &&
+   WINEPREFIX=~/.solidworks sh winetricks -q winetricks -q corefonts vcrun2019 msxml6 dxvk win10 &&
    
    echo "Solidworks will be installed and set up."
    mkdir solidworks &&
