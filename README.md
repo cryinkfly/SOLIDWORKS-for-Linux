@@ -44,6 +44,14 @@ Wine version: wine-6.8 (WINEARCH = win64)
 
 ________________________________________________
 
+# Installation dosn't work correctly!!!
+
+The installation of SOLIDWORKS hangs up here!
+
+![Bildschirmfoto_2021-05-18_21-44-23](https://user-images.githubusercontent.com/79079633/118714067-cb0da500-b822-11eb-87ce-b3d84a1687f0.png)
+
+________________________________________________
+
 #### Installation on openSUSE Leap & Tumbleweed:
 
 1.) Download my script: [Installation-Script](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/blob/main/scripts/solidworks-install.sh)
