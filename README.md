@@ -45,3 +45,11 @@ Wine version: wine-6.8 (WINEARCH = win64)
 ________________________________________________
 
 #### STILL IN PROGRESS
+
+
+
+##### Application Maintainer (WineHQ): https://appdb.winehq.org/objectManager.php?sClass=application&iId=318
+
+- @cryinkfly (Administrator & Project Manager)
+
+________________________________________________________________________________________________
