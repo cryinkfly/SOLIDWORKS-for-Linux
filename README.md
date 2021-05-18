@@ -1,6 +1,6 @@
 # SOLIDWORKS - Linux (Wine-Version)
 
-![License](https://raw.githubusercontent.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/main/images/installation/%235_Test_1.png)
+![Bildschirmfoto vom 2021-05-18 17-55-41](https://user-images.githubusercontent.com/79079633/118688257-2e3d0e80-b806-11eb-825f-0b245f700c78.png)
 
 Hello and Welcome on my GitHub-Channel "Crinkfly"!
 
@@ -72,9 +72,6 @@ ________________________________________________________________________________
 
 #### Installation on Fedora:
 
-![Bildschirmfoto vom 2021-05-18 17-55-41](https://user-images.githubusercontent.com/79079633/118688257-2e3d0e80-b806-11eb-825f-0b245f700c78.png)
-
-
 1.) Open a Terminal and run this command sudo nano /etc/hosts (Change this file!)
 
          127.0.0.1     localhost
@@ -113,8 +110,6 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 #### Installation with Flatpak - EXPERIMENTAL:
-
-![Login Screen](https://raw.githubusercontent.com/cryinkfly/Fusion-360---Linux-Wine-Version-/main/images/flatpak/org.winehq.flatpak-proton-68-ge-1/%2310_Flatpak_Autodesk_Fusion_360.png)
 
 1.) Look into my file [solidworks-install.sh](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/blob/main/scripts/solidworks-install.sh) and install the the minimum requirements!
 
