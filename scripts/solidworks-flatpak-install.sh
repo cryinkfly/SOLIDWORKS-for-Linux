@@ -74,7 +74,8 @@ mkdir solidworks &&
 cd solidworks &&
 wget https://dl-ak.solidworks.com/nonsecure/sw2020/sw2020_sp04.0_f/x64/200715.002-1-QA7UDVC9/SolidWorksSetup.exe &&
 
-WINEPREFIX=~/.solidworks wine SolidWorksSetup.exe
+
+wine SolidWorksSetup.exe
    
 # Notice: You must change to another window (Filebrowser, ...) and come back to the installation window!
 #         With this workaround can you only install SOLIDWORKS at the moment!!!
