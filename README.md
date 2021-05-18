@@ -44,12 +44,114 @@ Wine version: wine-6.8 (WINEARCH = win64)
 
 ________________________________________________
 
-#### STILL IN PROGRESS
+#### Installation on openSUSE Leap & Tumbleweed:
+
+1.) Download my script: [Installation-Script](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/blob/main/scripts/solidworks-install.sh)
+
+2.) On openSUSE Tumbleweed you must delete the steps for adding the wine-Repository in my file "solidworks-install.sh"!
+    
+3.) Follow my instruction in my file "solidworks-install.sh" !
+
+*Notice: Check if you have installed the newest graphics driver on your system!
+
+________________________________________________________________________________________________
 
 
+#### Installation on Ubuntu, Linux Mint, ...:
+
+1.) Download my script: [Installation-Script](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/blob/main/scripts/solidworks-install.sh)
+
+2.) When you system use a newer based Ubuntu version as like Ubuntu (Focal Fossa), then you must change the wine-Repository in my file "solidworks-install.sh (Visit this site: https://wiki.winehq.org/Ubuntu)!
+    
+3.) Follow my instruction in my file "solidworks-install.sh" !
+
+*Notice: Check if you have installed the newest graphics driver on your system!
+
+________________________________________________________________________________________________
+
+
+#### Installation on Fedora:
+
+![Bildschirmfoto vom 2021-05-18 17-55-41](https://user-images.githubusercontent.com/79079633/118688257-2e3d0e80-b806-11eb-825f-0b245f700c78.png)
+
+
+1.) Open a Terminal and run this command sudo nano /etc/hosts (Change this file!)
+
+         127.0.0.1     localhost
+         127.0.1.1     EXAMPLE-NAME
+         
+         ::1 ip6-localhost ip6-loopback
+         fe00::0 ip6-localnet
+         ff00::0 ip6-mcastprefix
+         ff02::1 ip6-allnodes
+         ff02::2 ip6-allrouters
+         ff02::3 ip6-allhosts
+
+2.) Run this command: sudo nano /etc/hostname (Change this file!)
+
+        EXAMPLE-NAME
+
+3.) Reboot your system
+
+4.) Download my script: [Installation-Script](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/blob/main/scripts/solidworks-install.sh)
+
+5.) Follow my instruction in my file "solidworks-install.sh" !
+
+*Notice: Check if you have installed the newest graphics driver on your system!
+ 
+________________________________________________________________________________________________
+
+
+#### Installation on Manjaro (based on Arch Linux): 
+
+1.) Download my script: [Installation-Script](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/blob/main/scripts/solidworks-install.sh)
+
+2.) Follow my instruction in my file "solidworks-install.sh" !
+
+*Notice: Check if you have installed the newest graphics driver on your system!
+
+________________________________________________________________________________________________
+
+#### Installation with Flatpak - EXPERIMENTAL:
+
+![Login Screen](https://raw.githubusercontent.com/cryinkfly/Fusion-360---Linux-Wine-Version-/main/images/flatpak/org.winehq.flatpak-proton-68-ge-1/%2310_Flatpak_Autodesk_Fusion_360.png)
+
+1.) Look into my file [solidworks-install.sh](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/blob/main/scripts/solidworks-install.sh) and install the the minimum requirements!
+
+2.) Install Flatpak on your system: https://flatpak.org/setup/ (More information about FLatpak: https://youtu.be/SavmR9ZtHg0)
+
+3.) Download my script: [Installation-Script](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/blob/main/scripts/solidworks-flatpak-install.sh)
+
+2.) Follow my instruction in my file "solidworks-flatpak-install.sh" !
+
+*Notice: Check if you have installed the newest graphics driver on your system!
+
+________________________________________________________________________________________________
+
+##### Note: Simply ignore errors that occur during installation. 
+#####       The installation of SOLIDWORKS was repeated several times to ensure that it really worked.
+
+________________________________________________________________________________________________
 
 ##### Application Maintainer (WineHQ): https://appdb.winehq.org/objectManager.php?sClass=application&iId=318
 
 - @cryinkfly (Administrator & Project Manager)
 
 ________________________________________________________________________________________________
+
+#####        Special thanks go to these users:
+
+- No users
+
+... they help me to get work Fusion 360 on Linux!!!
+________________________________________________________________________________________________
+
+#### Which workspaces I have tested:
+
+- Still in progress
+________________________________________________________________________________________________
+
+#### If you have some problems or a question:
+
+https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/issues
+
