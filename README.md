@@ -136,7 +136,7 @@ ________________________________________________________________________________
 
 ________________________________________________________________________________________________
 
-##### Application Maintainer (WineHQ): https://appdb.winehq.org/objectManager.php?sClass=application&iId=318
+##### Super Application Maintainer (WineHQ): https://appdb.winehq.org/objectManager.php?sClass=application&iId=318
 
 - @cryinkfly (Administrator & Project Manager)
 
