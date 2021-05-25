@@ -4,8 +4,8 @@
 # Description:  With this file you can install SOLIDWORKS on Linux.
 # Author:       Steve Zabka
 # Author URI:   https://cryinkfly.de
-# Time/Date:    18:00/18.05.2021
-# Version:      0.1
+# Time/Date:    14:50/25.05.2021
+# Version:      0.2
 
 # 1. Step: Install Flatpak on your system: https://flatpak.org/setup/ (More information about FLatpak: https://youtu.be/SavmR9ZtHg0)
 # 2. Step: Open a Terminal and run this command: cd Downloads && chmod +x solidworks-flatpak-install.sh && sh solidworks-flatpak-install.sh
@@ -70,7 +70,7 @@ echo "SOLIDWORKS will be installed and set up."
 flatpak run org.winehq.flatpak-proton-68-ge-1 bash &&
 cd $HOME &&
 cd Downloads &&
-mkdir solidworks &&
+mkdir -p solidworks &&
 cd solidworks &&
 wget https://dl-ak.solidworks.com/nonsecure/sw2020/sw2020_sp04.0_f/x64/200715.002-1-QA7UDVC9/SolidWorksSetup.exe &&
 
