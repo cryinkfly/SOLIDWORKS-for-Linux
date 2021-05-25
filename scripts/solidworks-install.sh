@@ -4,8 +4,8 @@
 # Description:  With this file you can install SOLIDWORKS on Linux.
 # Author:       Steve Zabka
 # Author URI:   https://cryinkfly.de
-# Time/Date:    21:00/18.05.2021
-# Version:      0.2
+# Time/Date:    14:50/25.05.2021
+# Version:      0.3
 
 # 1. Step: Open a Terminal and run this command: cd Downloads && chmod +x solidworks-install.sh && sh solidworks-install.sh
 # 2. Step: The installation will now start and set up everything for you automatically.
@@ -51,7 +51,7 @@ if [[ 1 -ne $# ]]; then
    WINEPREFIX=~/.solidworks sh winetricks -q corefonts vcrun2019 msxml6 dxvk win10 &&
    
    echo "Solidworks will be installed and set up."
-   mkdir solidworks &&
+   mkdir -p solidworks &&
    cd solidworks &&
    wget https://dl-ak.solidworks.com/nonsecure/sw2020/sw2020_sp04.0_f/x64/200715.002-1-QA7UDVC9/SolidWorksSetup.exe &&
    
