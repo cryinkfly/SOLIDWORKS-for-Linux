@@ -17,6 +17,7 @@ ________________________________________________
 You might want to use other CAD programs, then you can find more programs here:
 
   - Autodesk Fusion 360: https://github.com/cryinkfly/Fusion-360---Linux-Wine-Version-
+  - SOLIDWORKS: https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-
   - ...
 ________________________________________________
 
