@@ -146,7 +146,7 @@ ________________________________________________________________________________
 
 - No users
 
-... they help me to get work Fusion 360 on Linux!!!
+... they help me to get work SOLIDWORKS on Linux!!!
 ________________________________________________________________________________________________
 
 #### Which workspaces I have tested:
