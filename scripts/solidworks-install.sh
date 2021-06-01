@@ -26,7 +26,7 @@ elif VERB="$( which dnf )" 2> /dev/null; then
    echo "RedHat-based"
    sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm &&
    sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/34/winehq.repo
-   sudo dnf update &&
+   sudo dnf upgrade --refresh &&
    sudo dnf upgrade &&
    sudo dnf install p7zip p7zip-plugins curl wine cabextract
 elif VERB="$( which pacman )" 2> /dev/null; then
