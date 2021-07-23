@@ -18,6 +18,8 @@ You might want to use other CAD programs, then you can find more programs here:
 
   - Autodesk Fusion 360: https://github.com/cryinkfly/Fusion-360---Linux-Wine-Version-
   - SOLIDWORKS: https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-
+  - Rhino 3D: https://github.com/cryinkfly/Rhino-3D---Linux-Wine-Version-
+  - DesignSpark Mechanical: https://github.com/cryinkfly/DesignSpark-Mechanical---Linux-Wine-Version-
   - ...
 ________________________________________________
 
@@ -35,7 +37,7 @@ ________________________________________________
 My system:
 
 OS: openSUSE Leap 15.3 x86_64<br/>
-Kernel: 5.3.18-57-default<br/>
+Kernel: 5.3.18-59.13-default<br/>
 DE: Xfce<br/>
 CPU: Intel i7-7700HQ (8) @ 3.800GHz<br/>
 GPU: NVIDIA GeForce GTX 1060 Mobile 6G (Nvidia CUDA Repository)<br/><br/>
