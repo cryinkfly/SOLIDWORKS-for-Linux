@@ -14,6 +14,8 @@
 ##### Special thanks go to these users:
 
 - @cewbdex
+- @poohzaza166
+- @Dyllan2000alfa
 
 
 ... they help me with reports and code to get work SOLIDWORKS on Linux!!!
