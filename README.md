@@ -30,7 +30,7 @@ Personally, I think this idea is good and for this reason I will do my best to g
   - 📫 Then You can create an [issue](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/issues) here on GitHub or You can contact me via my [contact form](https://cryinkfly.com/contact/)!
   - 📜 Code of Conduct: Contributor Covenant (Still in Progress!)
   - 📖 Information for contributors: All contribution information, Compilation instructions, Roadmap (Still in Progress!)
-  - ❤️ I'd like to thank everyone who has [helped](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/blob/main/COMMUNITY.md) me to get Fusion 360 up and running on Linux!
+  - ❤️ I'd like to thank everyone who has [helped](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/blob/main/COMMUNITY.md) me to get SolidWorks up and running on Linux!
   - 🍷 Super Application Maintainer (WineHQ): https://appdb.winehq.org/objectManager.php?sClass=application&iId=318
 
 ---
