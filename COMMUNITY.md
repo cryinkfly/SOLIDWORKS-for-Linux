@@ -16,6 +16,9 @@
 - @cewbdex
 - @poohzaza166
 - @Dyllan2000alfa
+- @Duedot43
+- @gampam2000
+- @qwertychouskie
 
 
 ... they help me with reports and code to get work SOLIDWORKS on Linux!!!
