@@ -19,6 +19,8 @@
 - @Duedot43
 - @gampam2000
 - @qwertychouskie
+- @LikDev-256
+- @smithandreas
 
 
 ... they help me with reports and code to get work SOLIDWORKS on Linux!!!
