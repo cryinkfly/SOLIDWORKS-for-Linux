@@ -76,6 +76,8 @@ Install Solidworks for Linux client:
 
 3.) Please check this [issue](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/issues/3) if the installation hangs up by installing the language files!
 
+*Notice: Script is still in progress!!!
+
 ---
 
 ## Which work areas and functions have I tested:
