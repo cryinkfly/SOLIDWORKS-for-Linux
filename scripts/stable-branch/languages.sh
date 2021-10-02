@@ -51,7 +51,7 @@
     text_1_1="Do you wish to install these packages (y/n)?"
 
     #select-your-os
-    text_2="Installation of SOLIDWORKS - Version 0.4"
+    text_2="Installation of SOLIDWORKS - Version $version_number"
     text_2_1="Select your Linux distribution!"
     text_2_2="Choose one of the following options:"
 
@@ -127,4 +127,5 @@
     text_11_2="Die Installation von SOLIDWORKS ist abgeschlossen und Sie können es nun für Ihre Projekte verwenden."
 }
 
+version_number="0.5"
 select-language
