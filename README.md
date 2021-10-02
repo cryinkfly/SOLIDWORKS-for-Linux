@@ -40,6 +40,10 @@ Personally, I think this idea is good and for this reason I will do my best to g
 <img src="https://user-images.githubusercontent.com/79079633/118688257-2e3d0e80-b806-11eb-825f-0b245f700c78.png" width="300px" height="200px">
 <img src="https://raw.githubusercontent.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/main/images/installation/%235_Test_3.png" width="300px" height="200px">
 </div>
+<div>
+<img src="https://user-images.githubusercontent.com/79079633/135728619-42c40edd-ca58-4504-8809-5baa679c5d73.png" width="300px" height="200px">
+</div>
+
 
 ---
 
