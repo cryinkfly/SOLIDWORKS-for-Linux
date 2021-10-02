@@ -78,6 +78,24 @@ Install Solidworks for Linux client:
 
 ---
 
+## Which work areas and functions have I tested:
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Windows</th>
+<th>Linux</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Installation worked!</td>
+<td style="text-align: center;"><g-emoji class="g-emoji" alias="heavy_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png"><img class="emoji" alt="heavy_check_mark" src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png" width="20" height="20"></g-emoji></td>
+<td style="text-align: center;"><g-emoji class="g-emoji" alias="heavy_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png"><img class="emoji" alt="heavy_check_mark" src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png" width="20" height="20"></g-emoji></td>
+</tbody>
+</table>
+
 ---
 
 ## Important Notice
