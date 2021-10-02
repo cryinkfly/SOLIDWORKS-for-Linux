@@ -62,9 +62,17 @@ It's recommended that if you're new you start with the stable builds. Developmen
 
 ## Getting Started
 
-### Installation dosn't work correctly hangs up here!
+Install Solidworks for Linux client:
 
-![Bildschirmfoto_2021-05-18_21-44-23](https://user-images.githubusercontent.com/79079633/118714067-cb0da500-b822-11eb-87ce-b3d84a1687f0.png)
+1.) Check my <a href="https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/wiki/Documentation">GitHub-Documentation</a> before you install Solidworks on your system!
+
+2.) Open a terminal and run this command:
+
+    cd ~/Downloads && wget -N https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/raw/main/scripts/stable-branch/solidworks-install.sh && chmod +x solidworks-install.sh && bash solidworks-install.sh && exit
+
+3.) Please check this [issue](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/issues/3) if the installation hangs up by installing the language files!
+
+---
 
 ---
 
