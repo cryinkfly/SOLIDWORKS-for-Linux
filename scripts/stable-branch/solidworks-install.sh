@@ -423,7 +423,7 @@ function winetricks-custom {
    clear
    mkdir -p "$filename" &&
    mkdir -p "$filename/download/solidworks" &&
-   cd s"$filename/download/solidworks" &&
+   cd "$filename/download/solidworks" &&
    wget -N https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/raw/main/files/VBA/vba7.1.zip &&
    unzip vba7.1.zip &&
    cp -r vba7.1/Program*s $filename/drive_c &&
