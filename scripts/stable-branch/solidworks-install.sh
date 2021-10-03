@@ -401,7 +401,6 @@ function select-your-path-custom {
 function winetricks-standard {
    clear
    mkdir -p $HOME/.wineprefixes/solidworks &&
-   cd $HOME/.wineprefixes/solidworks &&
    mkdir -p solidworksdownload &&
    cd solidworksdownload &&
    wget -N https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/raw/main/files/VBA/vba7.1.zip &&
@@ -423,7 +422,6 @@ function winetricks-standard {
 function winetricks-custom {
    clear
    mkdir -p $filename &&
-   cd $filename &&
    mkdir -p solidworksdownload &&
    cd solidworksdownload &&
    wget -N https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/raw/main/files/VBA/vba7.1.zip &&
