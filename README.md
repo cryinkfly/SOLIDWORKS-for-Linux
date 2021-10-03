@@ -44,7 +44,9 @@ Personally, I think this idea is good and for this reason I will do my best to g
 <img src="https://user-images.githubusercontent.com/79079633/135744318-8db41136-30a0-4809-aa70-8e6a2983a90f.png" width="300px" height="200px">
 <img src="https://user-images.githubusercontent.com/79079633/135744308-6a255df8-f1b5-4423-8597-fca87f14d5bf.png" width="300px" height="200px">
 </div>
-
+<div>
+<img src="https://raw.githubusercontent.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/main/files/images/SOLIDWORKS%20Composer%20Player%202020/composer-player-filebrowser.png" width="300px" height="200px">
+</div>
 
 ---
 
