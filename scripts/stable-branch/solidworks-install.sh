@@ -7,8 +7,8 @@
 # Author URI:   https://cryinkfly.com                               #
 # License:      MIT                                                 #
 # Copyright (c) 2020-2021                                           #
-# Time/Date:    20:30/02.10.2021                                    #
-# Version:      0.5                                                 #
+# Time/Date:    13:45/09.10.2021                                    #
+# Version:      0.6                                                 #
 #####################################################################
 
 ##############################################################################
@@ -39,7 +39,7 @@
 # Here all languages are called up via an extra language file for the installation!
 
 function languages {
-    wget https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/raw/main/scripts/stable-branch/languages.sh &&
+    wget https://github.com/cryinkfly/SOLIDWORKS-for-Linux/raw/main/scripts/stable-branch/languages.sh &&
     chmod +x languages.sh &&
     clear &&
     . languages.sh
