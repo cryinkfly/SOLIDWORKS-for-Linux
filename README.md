@@ -75,7 +75,7 @@ Install Solidworks for Linux client:
 
 2.) Open a terminal and run this command:
 
-    cd ~/Downloads && wget -N https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/raw/main/scripts/stable-branch/solidworks-install.sh && chmod +x solidworks-install.sh && bash solidworks-install.sh && exit
+    cd ~/Downloads && wget -N https://github.com/cryinkfly/SOLIDWORKS-for-Linux/raw/main/scripts/stable-branch/solidworks-install.sh && chmod +x solidworks-install.sh && bash solidworks-install.sh && exit
 
 3.) Please check this [issue](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/issues/3) if the installation hangs up by installing the language files!
 
