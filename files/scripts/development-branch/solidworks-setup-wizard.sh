@@ -394,7 +394,7 @@ fi
 function start-launcher {
   zenity --question \
          --title="$program_name" \
-         --text="Would you like to install Autodesk Fusion 360 on your system?" \
+         --text="Would you like to install Solidworks on your system?" \
          --width=400 \
          --height=100
   answer=$?
