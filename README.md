@@ -8,9 +8,9 @@
 
 SolidWorks is a CAD software that can be used to create parametric models, assemblies, and drawings. It's typical to work with relationships (the alignment of elements with one another) and dimensions (alignment through values).
 
-You get this program for systems they have Windows or macOS installed.
+You get this program for systems that have Windows or macOS installed.
 
-But the problem is that there are also people like me who don't want to use either of these two operating systems on there systems. Then these users have installed a Linux distribution such as openSUSE Leap, Ubuntu or Fedora.
+But the problem is that there are also people like me who don't want to use either of these two operating systems on their systems. Then these users have installed a Linux distribution such as openSUSE Leap, Ubuntu or Fedora.
 
 And so I got the idea to start this project here to find a way to solve this problem. 
 
