@@ -845,13 +845,13 @@ function new_modify_deinstall {
                     --column="$text_select" --column="$text_select_option" \
                     TRUE "$text_select_option_1" \
                     FALSE "$text_select_option_2" \
-                    False "$text_select_option_4")
+                    False "$text_select_option_3")
 
 [[ $response = "$text_select_option_1" ]] && logfile_install=1 && view-exist-solidworks
 
 [[ $response = "$text_select_option_2" ]] && edit-exist-solidworks
 
-[[ $response = "$text_select_option_4" ]] && deinstall-view-exist-solidworks
+[[ $response = "$text_select_option_3" ]] && deinstall-view-exist-solidworks
 
 [[ "$response" ]] || echo "Go back" && configure-locale
 
