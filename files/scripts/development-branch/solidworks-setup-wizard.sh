@@ -352,7 +352,7 @@ echo "55" ; sleep 1
 echo "# The wine- and winetricks Script is loaded." ; sleep 1
 load-winetricks
 echo "75" ; sleep 1
-echo "# The Autodesk Fusion 360 installation file will be downloaded." ; sleep 1
+echo "# The Solidworks installation file will be downloaded." ; sleep 1
 check-if-solidworks-installer-exists
 echo "90" ; sleep 1
 echo "# The installation can now be started!" ; sleep 1
