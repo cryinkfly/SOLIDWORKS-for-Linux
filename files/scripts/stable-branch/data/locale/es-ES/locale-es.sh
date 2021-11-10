@@ -52,7 +52,7 @@ text_desktop_launcher_custom_question="¿Quieres guardar tus cambios?"
 text_abort="¿Realmente quieres abortar la instalación?"
 
 # Program-Exit
-text_completed_installation="Se completa la instalación de Autodesk Fusion 360."
+text_completed_installation="Se completa la instalación de Solidworks."
 
 # Select a option - new_modify_deinstall
 text_select_option="Opción"
