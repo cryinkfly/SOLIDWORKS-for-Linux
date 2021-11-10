@@ -70,7 +70,7 @@ text_select_option_3="Subete no Solidworks konpōnento o an'insutōru shimasu"
 text_new_installation_checkbox="Shiyō kanōna insutōrupasu o kakunin shimashita. Tsugi no suteppu de betsu no pasu o shitei shimasu."
 
 # Edit installation-checkbox - new_modify_deinstall
-text_edit_installation_checkbox="Kizon no Autodesk Fusion 360 insutōru kara tadashī pasu o kakitomeru ka kopī shimashita!"
+text_edit_installation_checkbox="Kizon no Solidworks insutōru kara tadashī pasu o kakitomeru ka kopī shimashita!"
 
 # Deinstall-checkbox - new_modify_deinstall
 text_deinstall_checkbox="Kizon no Solidworks insutōru kara tadashī pasu o kakitomeru ka kopī shite, kono pasu o sakujo shimashita."
