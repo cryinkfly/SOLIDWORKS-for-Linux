@@ -56,9 +56,6 @@ text_abort="Opravdu chcete instalaci přerušit?"
 # Program-Exit
 text_completed_installation="Instalace aplikace Solidworks je dokončena."
 
-# Program-Exit (Extensions)
-text_completed_installation_extensions="Instalace některých rozšíření pro Solidworks je dokončena."
-
 # Select a option - new_modify_deinstall
 text_select_option="Volba"
 
