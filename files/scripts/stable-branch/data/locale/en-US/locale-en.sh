@@ -61,7 +61,7 @@ text_select_option="Option"
 text_select_option_1="New installation of some or all components"
 
 # Option 2
-text_select_option_2="Install, Repair or Uninstall some extensions"
+text_select_option_2="Update or Repair a existing installation"
 
 # Option 3
 text_select_option_3="Uninstall all Solidworks components"
