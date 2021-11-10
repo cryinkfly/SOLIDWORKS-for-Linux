@@ -21,6 +21,7 @@
 - @qwertychouskie
 - @LikDev-256
 - @smithandreas
+- @TheOnion313
 
 
 ... they help me with reports and code to get work SOLIDWORKS on Linux!!!
