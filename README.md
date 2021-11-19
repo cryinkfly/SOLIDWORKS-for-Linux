@@ -27,7 +27,7 @@ Personally, I think this idea is good and for this reason I will do my best to g
   - 📂 Downloads: [Stable](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/tree/main/scripts/stable-branch) and [development builds](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/tree/main/scripts/development-branch)
   - 📔 Documentation: [GitHub-Documentation](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/wiki/Documentation)
   - 💬 Would You like to get in touch with me? Or if You have any questions, suggestions or problems?
-  - 📫 Then You can create an [issue](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/issues) here on GitHub or You can contact me via my [contact form](https://cryinkfly.com/contact/)!
+  - 📫 Then You can create an [issue](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/issues) here on GitHub or You can contact me via my <a href="https://cryinkfly.com/legal-notice/">website</a>!
   - 📜 Code of Conduct: Contributor Covenant (Still in Progress!)
   - 📖 Information for contributors: All contribution information, Compilation instructions, Roadmap (Still in Progress!)
   - ❤️ I'd like to thank everyone who has [helped](https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/blob/main/COMMUNITY.md) me to get SolidWorks up and running on Linux!
