@@ -1,10 +1,10 @@
 ![banner-solidworks](https://user-images.githubusercontent.com/79079633/127905775-f3b47b1e-91a0-40a1-8842-c21a311e8221.png)
 
-![GitHub last commit](https://img.shields.io/github/last-commit/cryinkfly/SOLIDWORKS-Linux-Wine-Version-?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues-raw/cryinkfly/SOLIDWORKS-Linux-Wine-Version-?style=for-the-badge)
-![GitHub Repo stars](https://img.shields.io/github/stars/cryinkfly/SOLIDWORKS-Linux-Wine-Version-?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/cryinkfly/SOLIDWORKS-Linux-Wine-Version-?style=for-the-badge)
-![GitHub](https://img.shields.io/github/license/cryinkfly/SOLIDWORKS-Linux-Wine-Version-?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/cryinkfly/SOLIDWORKS-for-Linux?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues-raw/cryinkfly/SOLIDWORKS-for-Linux?style=for-the-badge)
+![GitHub Repo stars](https://img.shields.io/github/stars/cryinkfly/SOLIDWORKS-for-Linux?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/cryinkfly/SOLIDWORKS-for-Linux?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/cryinkfly/SOLIDWORKS-for-Linux?style=for-the-badge)
 
 SolidWorks is a CAD software that can be used to create parametric models, assemblies, and drawings. It's typical to work with relationships (the alignment of elements with one another) and dimensions (alignment through values).
 
