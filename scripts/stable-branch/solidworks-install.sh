@@ -413,7 +413,7 @@ function winetricks-standard {
    WINEPREFIX=$HOME/.wineprefixes/solidworks sh winetricks -q corefonts vcrun2019 msxml6 dxvk win10 &&
    wget -N https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/raw/main/files/VBA/vba71-kb2783832-x64.msp &&
    WINEPREFIX=$HOME/.wineprefixes/solidworks msiexec /p vba71-kb2783832-x64.msp REINSTALL=ALL REINSTALLMODE=omus /qn
-   wget https://dl-ak.solidworks.com/nonsecure/sw2020/sw2020_sp04.0_f/x64/200715.002-1-QA7UDVC9/SolidWorksSetup.exe -O Solidworks.exe &&
+   wget https://dl-ak.solidworks.com/nonsecure/sw2022/sw2022_sp02.0_f/x64/220318.003-1-PGQH6ND3/SolidWorksSetup.exe -O Solidworks.exe &&
    WINEPREFIX=$HOME/.wineprefixes/solidworks wine Solidworks.exe &&
    logfile-installation-standard &&
    program-exit
@@ -434,7 +434,7 @@ function winetricks-custom {
    WINEPREFIX=$filename sh winetricks -q corefonts vcrun2019 msxml6 dxvk win10 &&
    wget -N https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/raw/main/files/VBA/vba71-kb2783832-x64.msp &&
    WINEPREFIX=$HOME/.wineprefixes/solidworks msiexec /p vba71-kb2783832-x64.msp REINSTALL=ALL REINSTALLMODE=omus /qn
-   wget https://dl-ak.solidworks.com/nonsecure/sw2020/sw2020_sp04.0_f/x64/200715.002-1-QA7UDVC9/SolidWorksSetup.exe -O Solidworks.exe &&
+   wget https://dl-ak.solidworks.com/nonsecure/sw2022/sw2022_sp02.0_f/x64/220318.003-1-PGQH6ND3/SolidWorksSetup.exe -O Solidworks.exe &&
    WINEPREFIX=$filename wine Solidworks.exe
    logfile-installation-custom &&
    program-exit
