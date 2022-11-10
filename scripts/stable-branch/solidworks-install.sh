@@ -129,7 +129,6 @@ CHOICE=$(dialog --clear \
                 "${OPTIONS[@]}" \
                 2>&1 >/dev/tty)
 
-clear
 case $CHOICE in         
         1)
             
@@ -283,7 +282,6 @@ CHOICE=$(dialog --clear \
                 "${OPTIONS[@]}" \
                 2>&1 >/dev/tty)
 
-clear
 case $CHOICE in
         1)
             archlinux-2 &&
@@ -373,7 +371,6 @@ CHOICE=$(dialog --clear \
                 "${OPTIONS[@]}" \
                 2>&1 >/dev/tty)
 
-clear
 case $CHOICE in
         1)
             winetricks-standard
@@ -399,7 +396,6 @@ function select-your-path-custom {
 # SOLIDWORKS will now be installed using Wine and Winetricks!
 
 function winetricks-standard {
-   clear
    mkdir -p "$HOME/.wineprefixes/solidworks" &&
    mkdir -p "$HOME/.wineprefixes/download/solidworks" &&
    cd "$HOME/.wineprefixes/downloads/solidworks" &&
@@ -420,7 +416,6 @@ function winetricks-standard {
 }
 
 function winetricks-custom {
-   clear
    mkdir -p "$filename" &&
    mkdir -p "$filename/download/solidworks" &&
    cd "$filename/download/solidworks" &&
@@ -472,7 +467,6 @@ function program-exit {
     --title "$text_6_1" \
     --msgbox "$text_6_2" 14 200
     
-    clear
     exit
 }
 
@@ -481,7 +475,6 @@ function program-exit {
 ##############################################################################
 
 logfile-installation &&
-clear &&
 languages &&
 check-requirement
 
