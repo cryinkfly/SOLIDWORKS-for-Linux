@@ -7,8 +7,8 @@
 # Author URI:   https://cryinkfly.com                               #
 # License:      MIT                                                 #
 # Copyright (c) 2020-2021                                           #
-# Time/Date:    13:45/09.10.2021                                    #
-# Version:      0.6                                                 #
+# Time/Date:    11:15/18.11.2022                                    #
+# Version:      0.7                                                 #
 #####################################################################
 
 ##############################################################################
@@ -39,17 +39,16 @@
 # Here all languages are called up via an extra language file for the installation!
 
 function languages {
-    wget https://github.com/cryinkfly/SOLIDWORKS-for-Linux/raw/main/scripts/stable-branch/languages.sh &&
+    #wget https://github.com/cryinkfly/SOLIDWORKS-for-Linux/raw/main/scripts/stable-branch/languages.sh &&
     chmod +x languages.sh &&
-    clear &&
-    . languages.sh
+    ./languages.sh
 }
 
 ##############################################################################
 
 # The minimum requirements for installing SOLIDWORKS will be installed here!
 
-function check-requirement {
+function checkrequirement {
 echo "$text_1"
 echo -n "$text_1_1"
 read answer
@@ -62,7 +61,7 @@ else
 fi
 }
 
-function install-requirement {
+function installrequirement {
 if VERB="$( which apt-get )" 2> /dev/null; then
    echo "Debian-based"
    sudo apt-get update &&
@@ -96,7 +95,7 @@ fi
 
 # For the installation of SOLIDWORKS one of the supported Linux distributions must be selected! - Part 1
 
-function select-your-os {
+function selectyouros {
 HEIGHT=15
 WIDTH=200
 CHOICE_HEIGHT=10
@@ -129,95 +128,96 @@ CHOICE=$(dialog --clear \
                 "${OPTIONS[@]}" \
                 2>&1 >/dev/tty)
 
+clear
 case $CHOICE in         
         1)
             
-            archlinux-1
+            archlinux1
             ;;
             
         2)
         
-            debian-based-1 &&
+            debianbased1 &&
             sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/debian/ buster main' &&
-            debian-based-2
+            debianbased2
             ;;  
             
         3)
         
-            debian-based-1 &&
+            debian-based1 &&
             sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/debian/ bullseye main' &&
-            debian-based-2
+            debianbased2
             ;;  
             
         4)
             
-            fedora-based-1 &&
+            fedorabased1 &&
             sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/33/winehq.repo &&
-            fedora-based-2
+            fedorabased2
             ;;  
             
         5) 
         
-            fedora-based-1 &&
+            fedorabased1 &&
             sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/34/winehq.repo &&
-            fedora-based-2
+            fedorabased2
             ;;  
         
         6)
         
             su -c 'zypper up && zypper rr https://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Leap_15.2/ wine && zypper ar -cfp 95 https://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Leap_15.2/ wine && zypper install p7zip-full curl wget wine cabextract' &&
-            select-your-path
+            selectyourpath
             ;;
             
         7)
             
             su -c 'zypper up && zypper rr https://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Leap_15.3/ wine && zypper ar -cfp 95 https://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Leap_15.3/ wine && zypper install p7zip-full curl wget wine cabextract' &&
-            select-your-path
+            selectyourpath
             ;;  
             
         8)
             
             su -c 'zypper up && zypper install p7zip-full curl wget wine cabextract' &&
-            select-your-path
+            selectyourpath
             ;;    
             
         9)
         
-            redhat-linux &&
-            select-your-path
+            redhatlinux &&
+            selectyourpath
             ;;
             
         10)
         
-            solus-linux &&
-            select-your-path
+            soluslinux &&
+            selectyourpath
             ;;
             
         11) 
         
-            debian-based-1 &&
+            debianbased1 &&
             sudo apt-add-repository -r 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main' &&
             wget -q https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/Release.key -O Release.key -O- | sudo apt-key add - &&
             sudo apt-add-repository 'deb https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/ ./' &&
-            debian-based-2
+            debianbased2
             ;;
             
         12) 
             
-            debian-based-1 &&
+            debianbased1 &&
             sudo add-apt-repository -r 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' &&
             wget -q https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_20.04/Release.key -O Release.key -O- | sudo apt-key add - &&
             sudo apt-add-repository 'deb https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_20.04/ ./' &&
-            debian-based-2
+            debianbased2
             ;;
             
         13) 
         
-            debian-based-1 &&
+            debianbased1 &&
             sudo add-apt-repository -r 'deb https://dl.winehq.org/wine-builds/ubuntu/ groovy main' &&
             wget -q https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_20.10/Release.key -O Release.key -O- | sudo apt-key add - &&
             sudo apt-add-repository 'deb https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_20.10/ ./' &&
-            debian-based-2
+            debianbased2
             ;;
             
         14)
@@ -240,19 +240,19 @@ case $CHOICE in
             sudo mv *.gpg /etc/apt/trusted.gpg.d/ && cd /tmp && sudo rm -rf 360 &&
             echo "deb [signed-by=/etc/apt/trusted.gpg.d/opensuse-wine.gpg] https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_21.04/ ./" | sudo tee -a /etc/apt/sources.list.d/opensuse-wine.list
             sudo add-apt-repository -r 'deb https://dl.winehq.org/wine-builds/ubuntu/ hirsute main' &&
-            debian-based-2
+            debianbased2
             ;;
             
         15)
         
-            void-linux &&
-            select-your-path
+            voidlinux &&
+            selectyourpath
             ;;
 
         16)
 
-            gentoo-linux &&
-            select-your-path
+            gentoolinux &&
+            selectyourpath
             ;;
 
 esac
@@ -262,7 +262,7 @@ esac
 
 # For the installation of SOLIDWORKS one of the supported Linux distributions must be selected! - Part 2
 
-function archlinux-1 {
+function archlinux1 {
 
 HEIGHT=15
 WIDTH=60
@@ -282,25 +282,26 @@ CHOICE=$(dialog --clear \
                 "${OPTIONS[@]}" \
                 2>&1 >/dev/tty)
 
+clear
 case $CHOICE in
         1)
-            archlinux-2 &&
-            select-your-path
+            archlinux2 &&
+            selectyourpath
             ;;
         2)
             sudo echo "[multilib]" >> /etc/pacman.conf &&
             sudo echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf &&
-            archlinux-2 &&
-            select-your-path
+            archlinux2 &&
+            selectyourpath
             ;;
 esac
 }
 
-function archlinux-2 {
+function archlinux2 {
    sudo pacman -Syu --needed wine wine-mono wine_gecko winetricks p7zip curl cabextract samba ppp
 }
    
-function debian-based-1 {
+function debianbased1 {
     sudo apt-get update &&
     sudo apt-get upgrade &&
     sudo dpkg --add-architecture i386  &&
@@ -308,7 +309,7 @@ function debian-based-1 {
     sudo apt-key add winehq.key
 }
 
-function debian-based-2 {
+function debianbased2 {
     sudo apt-get update &&
     sudo apt-get upgrade &&
     sudo apt-get install p7zip p7zip-full p7zip-rar curl winbind cabextract wget &&
@@ -316,33 +317,33 @@ function debian-based-2 {
     select-your-path
 }
 
-function fedora-based-1 {
+function fedorabased1 {
     sudo dnf update &&
     sudo dnf upgrade &&
     sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 }
 
-function fedora-based-2 {
+function fedorabased2 {
     sudo dnf install p7zip p7zip-plugins curl wget wine cabextract &&
     select-your-path
 }
 
-function redhat-linux {
+function redhatlinux {
    sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms &&
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm &&
    sudo dnf upgrade &&
    sudo dnf install wine
 }
 
-function solus-linux {
+function soluslinux {
    sudo eopkg install wine winetricks p7zip curl cabextract samba ppp
 }
 
-function void-linux {
+function voidlinux {
    sudo xbps-install -Sy wine wine-mono wine-gecko winetricks p7zip curl cabextract samba ppp
 }
 
-function gentoo-linux {
+function gentoolinux {
     sudo emerge -av virtual/wine app-emulation/winetricks app-emulation/wine-mono app-emulation/wine-gecko app-arch/p7zip app-arch/cabextract net-misc/curl net-fs/samba net-dialup/ppp
 }
 
@@ -350,7 +351,7 @@ function gentoo-linux {
 
 # Here you can determine how SOLIDWORKS should be installed! (Installation location)
 
-function select-your-path {
+function selectyourpath {
 
 HEIGHT=15
 WIDTH=200
@@ -373,17 +374,17 @@ CHOICE=$(dialog --clear \
 
 case $CHOICE in
         1)
-            winetricks-standard
+            winetricksstandard
             ;;
         2)
-            select-your-path-custom &&
-            winetricks-custom
+            selectyourpathcustom &&
+            winetrickscustom
             ;;
 esac
 }
 
 
-function select-your-path-custom {
+function selectyourpathcustom {
     dialog --backtitle "$text_5" \
     --title "$text_5_1" \
     --msgbox "$text_5_2" 14 200
@@ -395,7 +396,7 @@ function select-your-path-custom {
 
 # SOLIDWORKS will now be installed using Wine and Winetricks!
 
-function winetricks-standard {
+function winetricksstandard {
    mkdir -p "$HOME/.wineprefixes/solidworks" &&
    mkdir -p "$HOME/.wineprefixes/download/solidworks" &&
    cd "$HOME/.wineprefixes/downloads/solidworks" &&
@@ -411,11 +412,12 @@ function winetricks-standard {
    WINEPREFIX=$HOME/.wineprefixes/solidworks msiexec /p vba71-kb2783832-x64.msp REINSTALL=ALL REINSTALLMODE=omus /qn
    wget https://dl-ak.solidworks.com/nonsecure/sw2022/sw2022_sp02.0_f/x64/220318.003-1-PGQH6ND3/SolidWorksSetup.exe -O Solidworks.exe &&
    WINEPREFIX=$HOME/.wineprefixes/solidworks wine Solidworks.exe &&
-   logfile-installation-standard &&
-   program-exit
+   logfileinstallationstandard &&
+   programexit
 }
 
-function winetricks-custom {
+function winetrickscustom {
+
    mkdir -p "$filename" &&
    mkdir -p "$filename/download/solidworks" &&
    cd "$filename/download/solidworks" &&
@@ -431,28 +433,28 @@ function winetricks-custom {
    WINEPREFIX=$HOME/.wineprefixes/solidworks msiexec /p vba71-kb2783832-x64.msp REINSTALL=ALL REINSTALLMODE=omus /qn
    wget https://dl-ak.solidworks.com/nonsecure/sw2022/sw2022_sp02.0_f/x64/220318.003-1-PGQH6ND3/SolidWorksSetup.exe -O Solidworks.exe &&
    WINEPREFIX=$filename wine Solidworks.exe
-   logfile-installation-custom &&
-   program-exit
+   logfileinstallationcustom &&
+   programexit
 }
 
 ##############################################################################
 
 # A log file will now be created here so that it can be checked in the future whether an installation of SOLIDWORKS already exists on your system.
 
-function logfile-installation {
+function logfileinstallation {
    mkdir -p "/$HOME/.local/share/solidworks/logfiles" && 
    exec 5> /$HOME/.local/share/solidworks/logfiles/install-log.txt
    BASH_XTRACEFD="5"
    set -x
 }
 
-function logfile-installation-standard {
+function logfileinstallationstandard {
    mkdir -p "/$HOME/.local/share/solidworks/logfiles" &&
    cd "/$HOME/.local/share/solidworks/logfiles" &&
    echo "/home/$USER/.wineprefixes/solidworks/logfiles" >> path-log.txt
 }
 
-function logfile-installation-custom {
+function logfileinstallationcustom {
    mkdir -p "/$HOME/.local/share/solidworks/logfiles" &&
    cd "/$HOME/.local/share/solidworks/logfiles" &&
    echo "$filename" >> path-log.txt
@@ -462,11 +464,12 @@ function logfile-installation-custom {
 
 # The installation is complete and will be terminated.
 
-function program-exit {
+function programexit {
     dialog --backtitle "$text_6" \
     --title "$text_6_1" \
     --msgbox "$text_6_2" 14 200
     
+    clear
     exit
 }
 
@@ -474,9 +477,8 @@ function program-exit {
 # THE INSTALLATION PROGRAM IS STARTED HERE:
 ##############################################################################
 
-logfile-installation &&
+logfileinstallation &&
 languages &&
-check-requirement
+checkrequirement
 
 ############################################################################################################################################################
-
