@@ -289,8 +289,13 @@ case $CHOICE in
             selectyourpath
             ;;
         2)
-            sudo echo "[multilib]" >> /etc/pacman.conf &&
-            sudo echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf &&
+            if grep -q "#[multilib]" /etc/pacman.conf
+            then
+            echo "multilib already enabled, not writing to /etc/pacman.conf"
+            else
+            echo "multilib is not enabled, enabling it now"
+            sudo awk -v RS="\0" -v ORS="" '{gsub(/#\[multilib\]\n#Include = \/etc\/pacman.d\/mirrorlist/,"[multilib]\nInclude = /etc/pacman.d/mirrorlist")}7' /etc/pacman.conf > /dev/null
+            fi
             archlinux2 &&
             selectyourpath
             ;;
