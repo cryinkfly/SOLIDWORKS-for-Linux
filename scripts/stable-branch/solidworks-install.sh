@@ -41,7 +41,7 @@
 function languages {
     #wget https://github.com/cryinkfly/SOLIDWORKS-for-Linux/raw/main/scripts/stable-branch/languages.sh &&
     chmod +x languages.sh &&
-    ./languages.sh
+    source ./languages.sh
 }
 
 ##############################################################################
