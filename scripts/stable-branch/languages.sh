@@ -55,13 +55,6 @@
     text_2_1="Select your Linux distribution!"
     text_2_2="Choose one of the following options:"
 
-    #archlinux-1
-    text_3="$text_2"
-    text_3_1="If you have enabled multilib repository?"
-    text_3_2="$text_2_2"
-    text_3_3="Yes"
-    text_3_4="No"
-
     #select-your-path
     text_4="$text_2"
     text_4_1="Choose setup type!"
@@ -93,20 +86,12 @@
 
     text_1="In diesem Schritt werden die folgenden Pakete >dialog< und >wmctrl< für die Installation von SOLIDWORKS installiert!"
     text_1_1="Möchten Sie diese Pakete installieren (j/n)?"
-
     
     #select-your-os
     text_2="Installation von SOLIDWORKS - Version 0.4"
     text_2_1="Wählen Sie Ihre Linux-Distribution aus!"
     text_2_2="Wählen Sie eine der folgenden Optionen:"
-
-    #archlinux-1
-    text_3="$text_2"
-    text_3_1="Haben Sie das Multilib-Repository aktiviert?"
-    text_3_2="$text_2_2"
-    text_3_3="Ja"
-    text_3_4="Nein"
-
+    
     #select-your-path
     text_4="$text_2"
     text_4_1="Wählen Sie den Setup-Typ aus!"
