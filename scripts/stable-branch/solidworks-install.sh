@@ -53,9 +53,9 @@ echo "$text_1"
 echo -n "$text_1_1"
 read answer
 if [ "$answer" != "${answer#[YyJj]}" ] ;then
-    install-requirement &&
+    installrequirement &&
     wmctrl -r ':ACTIVE:' -b toggle,fullscreen &&
-    select-your-os
+    selectyouros
 else
     exit;
 fi
@@ -231,14 +231,14 @@ case $CHOICE in
             sudo apt upgrade &&
             sudo dpkg --add-architecture i386  &&
             mkdir -p /tmp/360 && cd /tmp/360 &&
-            wget https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_21.04/Release.key &&
+            wget https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_22.04/Release.key &&
             wget https://dl.winehq.org/wine-builds/winehq.key &&
             gpg --no-default-keyring --keyring ./temp-keyring.gpg --import Release.key &&
             gpg --no-default-keyring --keyring ./temp-keyring.gpg --export --output opensuse-wine.gpg && rm temp-keyring.gpg &&
             gpg --no-default-keyring --keyring ./temp-keyring.gpg --import winehq.key &&
             gpg --no-default-keyring --keyring ./temp-keyring.gpg --export --output winehq.gpg && rm temp-keyring.gpg &&
             sudo mv *.gpg /etc/apt/trusted.gpg.d/ && cd /tmp && sudo rm -rf 360 &&
-            echo "deb [signed-by=/etc/apt/trusted.gpg.d/opensuse-wine.gpg] https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_21.04/ ./" | sudo tee -a /etc/apt/sources.list.d/opensuse-wine.list
+            echo "deb [signed-by=/etc/apt/trusted.gpg.d/opensuse-wine.gpg] https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_22.04/ ./" | sudo tee -a /etc/apt/sources.list.d/opensuse-wine.list
             sudo add-apt-repository -r 'deb https://dl.winehq.org/wine-builds/ubuntu/ hirsute main' &&
             debianbased2
             ;;
@@ -319,7 +319,7 @@ function debianbased2 {
     sudo apt-get upgrade &&
     sudo apt-get install p7zip p7zip-full p7zip-rar curl winbind cabextract wget &&
     sudo apt-get install --install-recommends winehq-staging &&
-    select-your-path
+    selectyourpath
 }
 
 function fedorabased1 {
@@ -330,7 +330,7 @@ function fedorabased1 {
 
 function fedorabased2 {
     sudo dnf install p7zip p7zip-plugins curl wget wine cabextract &&
-    select-your-path
+    selectyourpath
 }
 
 function redhatlinux {
