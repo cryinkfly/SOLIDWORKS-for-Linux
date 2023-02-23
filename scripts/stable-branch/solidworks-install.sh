@@ -263,43 +263,15 @@ esac
 # For the installation of SOLIDWORKS one of the supported Linux distributions must be selected! - Part 2
 
 function archlinux1 {
-
-HEIGHT=15
-WIDTH=60
-CHOICE_HEIGHT=2
-BACKTITLE="$text_3"
-TITLE="$text_3_1"
-MENU="$text_3_2"
-
-OPTIONS=(1 "$text_3_3"
-         2 "$text_3_4")
-
-CHOICE=$(dialog --clear \
-                --backtitle "$BACKTITLE" \
-                --title "$TITLE" \
-                --menu "$MENU" \
-                $HEIGHT $WIDTH $CHOICE_HEIGHT \
-                "${OPTIONS[@]}" \
-                2>&1 >/dev/tty)
-
-clear
-case $CHOICE in
-        1)
-            archlinux2 &&
-            selectyourpath
-            ;;
-        2)
-            if grep -q "#[multilib]" /etc/pacman.conf
-            then
-            echo "multilib already enabled, not writing to /etc/pacman.conf"
-            else
-            echo "multilib is not enabled, enabling it now"
-            sudo awk -v RS="\0" -v ORS="" '{gsub(/#\[multilib\]\n#Include = \/etc\/pacman.d\/mirrorlist/,"[multilib]\nInclude = /etc/pacman.d/mirrorlist")}7' /etc/pacman.conf > /dev/null
-            fi
-            archlinux2 &&
-            selectyourpath
-            ;;
-esac
+    if grep -q "#[multilib]" /etc/pacman.conf
+    then
+        echo "multilib already enabled, not writing to /etc/pacman.conf"
+    else
+        echo "multilib is not enabled, enabling it now"
+        sudo awk -v RS="\0" -v ORS="" '{gsub(/#\[multilib\]\n#Include = \/etc\/pacman.d\/mirrorlist/,"[multilib]\nInclude = /etc/pacman.d/mirrorlist")}7' /etc/pacman.conf > /dev/null
+    fi
+    archlinux2 &&
+    selectyourpath
 }
 
 function archlinux2 {
