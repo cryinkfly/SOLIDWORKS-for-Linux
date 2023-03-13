@@ -20,7 +20,7 @@ SP_LICENSE_ERROR="Achtung! - Die Lizenzvereinbachung wurde nicht akzeptiert! \n 
 SP_SELECT_SOLIDWORKS_VERSION_SUBTITLE="SOLIDWORKS - Versionsauswahl"
 SP_SELECT_SOLIDWORKS_VERSION_TEXT="Bitte wählen Sie Ihre SOLIDWORKS-Version aus, um fortfahren zu können:"
 
-SP_SELECT_SOLIDWORKS_SUBTITLE="SOLIDWORKS - Installationsdatei (EXE) auswählen"
+SP_SELECT_SOLIDWORKS_SUBTITLE="SOLIDWORKS - Installationsdatei auswählen"
 SP_SELECT_SOLIDWORKS_TEXT="Bitte navigieren Sie in den Ordner, wo sich die SOLDIWORKS-Installationsdatei (EXE) befindet und wählen Sie die Datei aus."
 
 SP_SELECT_OS_VERSION_SUBTITLE="Linux-Distribution - Konfiguration"
