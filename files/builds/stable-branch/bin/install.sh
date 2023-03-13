@@ -6,7 +6,7 @@
 # Author:       Steve Zabka                                                                                                #
 # Author URI:   https://cryinkfly.com                                                                                      #
 # License:      MIT                                                                                                        #
-# Time/Date:    10:45/13.03.2023                                                                                           #
+# Time/Date:    11:00/13.03.2023                                                                                           #
 # Version:      0.8.0                                                                                                      #
 # Requires:     dialog, wget, lsb-release, coreutils                                                                       #
 ############################################################################################################################
@@ -148,8 +148,8 @@ function SP_SELECT_SOLIDWORKS_VERSION {
 
 function SP_SELECT_SOLIDWORKS {
     SOLIDWORKS_EXE=$(dialog --backtitle "Setup - SOLIDWORKS for Linux [Build Version 0.8.0]" \
-    --title "Delete a file" \
-    --stdout --title "Please choose a file to delete" \
+    --title "$SP_SELECT_SOLIDWORKS_SUBTITLE" \
+    --stdout --title "$SP_SELECT_SOLIDWORKS_TEXT" \
     --fselect "$HOME/Downloads/" 0 0)
     SP_SELECT_OS_VERSION
 }
@@ -513,7 +513,8 @@ function SP_WELCOME {
 ###############################################################################################################################################################
 
 function SP_SHOW_LICENSE {
-  dialog --yesno "`cat $SP_LICENSE_FILE`" 0 0
+  dialog --backtitle "Setup - SOLIDWORKS for Linux [Build Version 0.8.0]" \
+  --yesno "`cat $SP_LICENSE_FILE`" 0 0
   response=$?
   case $response in
      0) SP_SELECT_SOLIDWORKS_VERSION;; # Open the next dialog window for selecting the correct SOLIDWORKS Version.
@@ -524,7 +525,8 @@ function SP_SHOW_LICENSE {
 } 
 
 function SP_SHOW_LICENSE_ERROR {
-  dialog --yesno "$SP_LICENSE_ERROR" 0 0
+  dialog --backtitle "Setup - SOLIDWORKS for Linux [Build Version 0.8.0]" \
+  --yesno "$SP_LICENSE_ERROR" 0 0
   response=$?
   case $response in
      0) SP_SHOW_LICENSE;; # Open the next dialog for accept the license.
