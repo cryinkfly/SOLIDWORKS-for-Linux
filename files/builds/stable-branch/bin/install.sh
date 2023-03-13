@@ -55,7 +55,7 @@ SP_REQUIRED_COMMANDS=("dialog" "wget" "lsb-release" "pkexec")
 
 # Create a base structure for the installation of SOLIDWORKS.
 function SP_CREATE_STRUCTURE {
-    mkdir -p $SP_PATH/{bin,config,locale/{de-DE,en-US},cache,logs,servers,graphics,music,downloads/{extensions},wineprefixes}
+    mkdir -p $SP_PATH/{bin,config,locale/{de-DE,en-US},cache,logs,servers,graphics,music,downloads/extensions,wineprefixes}
 }
 
 ###############################################################################################################################################################
@@ -99,10 +99,9 @@ function SP_WINETRICKS_LOAD {
 
 # Download the newest winetricks version:
 function SP_SOLIDWORKS_LOAD {
-  wget -N -P "$SP_PATH/bin" --progress=dot "https://dl-ak.solidworks.com/nonsecure/sw2022/sw2022_sp02.0_f/x64/220318.003-1-PGQH6ND3/SolidWorksSetup.exe" 2>&1 |\
+  wget -N -P "$SP_PATH/downloads" --progress=dot "https://dl-ak.solidworks.com/nonsecure/sw2022/sw2022_sp02.0_f/x64/220318.003-1-PGQH6ND3/SolidWorksSetup.exe" 2>&1 |\
   grep "%" |\
   sed -u -e "s,\.,,g" | awk '{print $2}' | sed -u -e "s,\%,,g"  | dialog --gauge "Download SOLIDWORKS 2022 ..." 10 100
-  mv "SolidWorksSetup.exe" "$SP_PATH/downloads/SolidWorksSetup.exe"
   sleep 1
 }
 
@@ -338,6 +337,8 @@ function OS_OPENSUSE {
     OS_OPENSUSE_154
   elif [[ $OS_OPENSUSE_VERSION == *"openSUSE"*"Tumbleweed"* ]]; then
     OS_OPENSUSE_TW
+  elif [[ $OS_OPENSUSE_VERSION == *"openSUSE"*"MicroOS"* ]]; then
+    OS_OPENSUSE_MICROOS #If you like to use WINE into a Distrobox Container!
   else
     echo "Your Linux distribution is not supported yet!"
   fi
@@ -355,7 +356,12 @@ function OS_OPENSUSE_155 {
 }
 
 function OS_OPENSUSE_TW {
-  pkexec su -c 'zypper up && zypper rr https://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Tumbleweed/ wine && zypper ar -cfp 95 https://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Tumbleweed/ wine && zypper install p7zip-full curl wget wine cabextract'
+  pkexec su -c 'zypper dup && zypper rr https://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Tumbleweed/ wine && zypper ar -cfp 95 https://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Tumbleweed/ wine && zypper install p7zip-full curl wget wine cabextract'
+  SP_SOLIDWORKS_INSTALL
+}
+
+function OS_OPENSUSE_MICROOS {
+  sudo zypper dup && sudo zypper rr https://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Tumbleweed/ wine && sudo zypper ar -cfp 95 https://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Tumbleweed/ wine && sudo zypper install p7zip-full curl wget wine cabextract
   SP_SOLIDWORKS_INSTALL
 }
 
@@ -415,7 +421,7 @@ function OS_GENTOO_LINUX {
 # ALL WINEPREFIXES-FUNCTIONS ARE ARRANGED HERE:                                                                                                               #
 ###############################################################################################################################################################
 
-function winetricksstandard {
+function SP_SOLIDWORKS_INSTALL {
    cd "$SP_PATH/bin/winetricks"
    WINEPREFIX=$SP_PATH/wineprefixes/solidworks sh winetricks -q corefonts vcrun2019 msxml6 dxvk win10 &&
    WINEPREFIX=$SP_PATH/wineprefixes/solidworks sh winetricks -q win10 &&
@@ -466,6 +472,8 @@ function SP_SELECT_OS_VERSION {
        12 "Gentoo Linux" off 3>&1 1>&2 2>&3 3>&-)
   clear
   echo "$SP_OS_VERSION" >> /tmp/solidworks/settings.txt
+  SP_WINETRICKS_LOAD
+  SP_SOLIDWORKS_LOAD
   SP_LOAD_OS_PACKAGES # Load the correct packages for your system for the next steps.
 }
 
@@ -484,6 +492,7 @@ function SP_EXIT {
 # THE INSTALLATION PROGRAM IS STARTED HERE:                                                                                                                   #
 ###############################################################################################################################################################
 
+SP_LOG_INSTALLATION
 SP_CHECK_REQUIRED_COMMANDS
 SP_CREATE_STRUCTURE
 SP_LOCALE_FILES
