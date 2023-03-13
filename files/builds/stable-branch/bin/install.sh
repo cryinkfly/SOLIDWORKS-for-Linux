@@ -6,7 +6,7 @@
 # Author:       Steve Zabka                                                                                                #
 # Author URI:   https://cryinkfly.com                                                                                      #
 # License:      MIT                                                                                                        #
-# Time/Date:    11:00/13.03.2023                                                                                           #
+# Time/Date:    11:15/13.03.2023                                                                                           #
 # Version:      0.8.0                                                                                                      #
 # Requires:     dialog, wget, lsb-release, coreutils                                                                       #
 ############################################################################################################################
@@ -543,7 +543,7 @@ function SP_SELECT_SOLIDWORKS_VERSION {
     --title "$SP_SELECT_SOLIDWORKS_VERSION_SUBTITLE" \
     --radiolist "$SP_SELECT_SOLIDWORKS_VERSION_TEXT" 0 0 0 \
        01 "SOLIDWORKS 2022" on\
-       02 "Gentoo Linux" off 3>&1 1>&2 2>&3 3>&-)
+       02 "SOLIDWORKS 2022, 2023, ..." off 3>&1 1>&2 2>&3 3>&-)
   clear
   echo "$SP_SOLIDWORKS_VERSION" >> $SP_PATH/cache/settings.txt
   SP_SELECT_SOLIDWORKS_VERSION
