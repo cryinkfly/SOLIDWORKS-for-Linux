@@ -561,7 +561,7 @@ function SP_SELECT_OS_VERSION {
        04 "Fedora" off\
        05 "Linux Mint" off\
        06 "Manjaro Linux" off\
-       07 "openSUSE Leap & TW" off\
+       07 "openSUSE Leap, TW & MicroOS (TW Distrobox Container)" off\
        08 "Red Hat Enterprise Linux" off\
        09 "Solus" off\
        10 "Ubuntu" off\
