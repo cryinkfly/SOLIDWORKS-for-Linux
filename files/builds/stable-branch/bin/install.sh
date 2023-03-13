@@ -6,9 +6,9 @@
 # Author:       Steve Zabka                                                                                                #
 # Author URI:   https://cryinkfly.com                                                                                      #
 # License:      MIT                                                                                                        #
-# Time/Date:    xx:xx/xx.xx.2023                                                                                           #
+# Time/Date:    10:30/13.03.2023                                                                                           #
 # Version:      0.8.0                                                                                                      #
-# Requires:     dialog, wget, lsb-release, pkexec                                                                          #
+# Requires:     dialog, wget, lsb-release                                                                                  #
 ############################################################################################################################
 
 ############################################################################################################################
@@ -29,7 +29,7 @@ NOCOLOR='\033[0m'
 
 # Check if the package "dialog" and "wget" is installed on your system.
 function SP_CHECK_REQUIRED_COMMANDS {
-SP_REQUIRED_COMMANDS=("dialog" "wget" "lsb-release" "pkexec")
+SP_REQUIRED_COMMANDS=("dialog" "wget" "lsb-release")
     for cmd in "${SP_REQUIRED_COMMANDS[@]}"; do
         echo "Testing presence of ${cmd} ..."
         local path="$(command -v "${cmd}")"
@@ -37,7 +37,7 @@ SP_REQUIRED_COMMANDS=("dialog" "wget" "lsb-release" "pkexec")
             echo "All required packages are installed on your system!"
         else
             clear
-            echo -e "${RED}The required packages 'dialog' and 'wget' not installed on your system!${NOCOLOR}"
+            echo -e "${RED}The required packages 'dialog', 'wget' and 'lsb-release' not installed on your system!${NOCOLOR}"
             read -p "Would you like to install these packages on your system to continue the installation of SOLIDWORKS? (y/n)" yn
             case $yn in 
 	            y ) SP_INSTALL_REQUIRED_COMMANDS;
@@ -49,6 +49,36 @@ SP_REQUIRED_COMMANDS=("dialog" "wget" "lsb-release" "pkexec")
             esac
         fi
     done;
+}
+
+function SP_INSTALL_REQUIRED_COMMANDS {
+if VERB="$( which apt-get )" 2> /dev/null; then
+   echo "Debian-based"
+   sudo apt-get update &&
+   sudo apt-get install dialog wget lsb-release software-properties-common
+elif VERB="$( which dnf )" 2> /dev/null; then
+   echo "RedHat-based"
+   sudo dnf update &&
+   sudo dnf install dialog wget lsb-release
+elif VERB="$( which pacman )" 2> /dev/null; then
+   echo "Arch-based"
+   sudo pacman -Syu --needed dialog wget lsb-release
+elif VERB="$( which zypper )" 2> /dev/null; then
+   echo "openSUSE-based"
+   su -c 'zypper up && zypper in dialog wget lsb-release'
+elif VERB="$( which xbps-install )" 2> /dev/null; then
+   echo "Void-based"
+   sudo xbps-install -Sy dialog wget lsb-release
+elif VERB="$( which eopkg )" 2> /dev/null; then
+   echo "Solus-based"
+   sudo eopkg install dialog wget lsb-release 
+elif VERB="$( which emerge )" 2> /dev/null; then
+    echo "Gentoo-based"
+    sudo emerge -av dev-util/dialog net-misc/wget sys-apps/lsb-release
+else
+   echo "I can't find your package manager!"
+   exit;
+fi
 }
 
 ###############################################################################################################################################################
@@ -82,7 +112,7 @@ function SP_CONFIG_LOCALE {
     # shellcheck source=../locale/en-US/locale-en.sh
     source "$SP_PATH/locale/en-US/locale-en.sh"
     fi
-    SP_SELECT_OS_VERSION
+    SP_SHOW_LICENSE
 }
 
 ###############################################################################################################################################################
@@ -97,12 +127,31 @@ function SP_WINETRICKS_LOAD {
 
 ###############################################################################################################################################################
 
-# Download the newest winetricks version:
+function SP_SELECT_SOLIDWORKS_VERSION {
+    if [[ $SP_SOLIDWORKS_VERSION = "02" ]]; then
+    SP_SELECT_SOLIDWORKS
+    else
+    SP_SOLIDWORKS_LOAD
+    fi
+    SP_SELECT_SOLIDWORKS_VERSION
+}
+
+function SP_SELECT_SOLIDWORKS {
+    SOLIDWORKS_EXE=$(dialog --backtitle "Setup - SOLIDWORKS for Linux [Build Version 0.8.0]" \
+    --title "Delete a file" \
+    --stdout --title "Please choose a file to delete" \
+    --fselect "$HOME/Downloads/" 0 0)
+    SP_SELECT_OS_VERSION
+}
+
+# Download SOLIDWORKS:
 function SP_SOLIDWORKS_LOAD {
   wget -N -P "$SP_PATH/downloads" --progress=dot "https://dl-ak.solidworks.com/nonsecure/sw2022/sw2022_sp02.0_f/x64/220318.003-1-PGQH6ND3/SolidWorksSetup.exe" 2>&1 |\
   grep "%" |\
   sed -u -e "s,\.,,g" | awk '{print $2}' | sed -u -e "s,\%,,g"  | dialog --gauge "Download SOLIDWORKS 2022 ..." 10 100
   sleep 1
+  SOLIDWORKS_EXE="$SP_PATH/downloads/SolidWorksSetup.exe"
+  SP_SELECT_OS_VERSION
 }
 
 ###############################################################################################################################################################
@@ -423,7 +472,7 @@ function OS_GENTOO_LINUX {
 
 function SP_SOLIDWORKS_INSTALL {
    cd "$SP_PATH/bin/winetricks"
-   WINEPREFIX=$SP_PATH/wineprefixes/solidworks sh winetricks -q corefonts vcrun2019 msxml6 dxvk win10 &&
+   WINEPREFIX=$SP_PATH/wineprefixes/solidworks sh winetricks -q atmlib gdiplus corefonts vcrun2019 msxml4 msxml6 dxvk win10 &&
    WINEPREFIX=$SP_PATH/wineprefixes/solidworks sh winetricks -q win10 &&
    cd "$SP_PATH/downloads/extensions" &&
    wget -N https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/raw/main/files/VBA/vba7.1.zip &&
@@ -433,8 +482,7 @@ function SP_SOLIDWORKS_INSTALL {
    cp -r vba7.1/windows $SP_PATH/wineprefixes/solidworks/drive_c &&
    wget -N https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/raw/main/files/VBA/vba71-kb2783832-x64.msp &&
    WINEPREFIX=$SP_PATH/wineprefixes/solidworks msiexec /p vba71-kb2783832-x64.msp REINSTALL=ALL REINSTALLMODE=omus /qn
-   cd "$SP_PATH/downloads" &&
-   WINEPREFIX=$SP_PATH/wineprefixes/solidworks wine Solidworks.exe &&
+   WINEPREFIX=$SP_PATH/wineprefixes/solidworks wine $SOLIDWORKS_EXE &&
    SP_EXIT
 }
 
@@ -448,8 +496,45 @@ function SP_WELCOME {
     --radiolist "Please select your language to >Continue< with the installation or >Cancel< to exit this Installer Wizard." 0 0 0 \
        01 "English" on\
        02 "Deutsch" off 3>&1 1>&2 2>&3 3>&-)
-  echo "$SP_LOCALE" > /tmp/solidworks/settings.txt
+  echo "$SP_LOCALE" > $SP_PATH/cache/settings.txt
   SP_CONFIG_LOCALE
+}
+
+###############################################################################################################################################################
+
+function SP_SHOW_LICENSE {
+  dialog --yesno "`cat $SP_LICENSE_FILE`" 0 0
+  response=$?
+  case $response in
+     0) SP_SELECT_SOLIDWORKS_VERSION;; # Open the next dialog window for selecting the correct SOLIDWORKS Version.
+     1) SP_SHOW_LICENSE_ERROR;; #Displays an error message that the license terms have not been accepted!
+     255) echo "[ESC] key pressed.";; # Program has been terminated manually!
+  esac
+  
+} 
+
+function SP_SHOW_LICENSE_ERROR {
+  dialog --yesno "$SP_LICENSE_ERROR" 0 0
+  response=$?
+  case $response in
+     0) SP_SHOW_LICENSE;; # Open the next dialog for accept the license.
+     1) exit;; # Program has been terminated manually!
+     255) echo "[ESC] key pressed.";; # Program has been terminated manually!
+  esac
+  
+}
+
+###############################################################################################################################################################
+
+function SP_SELECT_SOLIDWORKS_VERSION {
+  SP_SOLIDWORKS_VERSION=$(dialog --backtitle "Setup - SOLIDWORKS for Linux [Build Version 0.8.0]" \
+    --title "$SP_SELECT_SOLIDWORKS_VERSION_SUBTITLE" \
+    --radiolist "$SP_SELECT_SOLIDWORKS_VERSION_TEXT" 0 0 0 \
+       01 "SOLIDWORKS 2022" on\
+       02 "Gentoo Linux" off 3>&1 1>&2 2>&3 3>&-)
+  clear
+  echo "$SP_SOLIDWORKS_VERSION" >> $SP_PATH/cache/settings.txt
+  SP_SELECT_SOLIDWORKS_VERSION
 }
 
 ###############################################################################################################################################################
@@ -471,7 +556,7 @@ function SP_SELECT_OS_VERSION {
        11 "Void Linux" off\
        12 "Gentoo Linux" off 3>&1 1>&2 2>&3 3>&-)
   clear
-  echo "$SP_OS_VERSION" >> /tmp/solidworks/settings.txt
+  echo "$SP_OS_VERSION" >> $SP_PATH/cache/settings.txt
   SP_WINETRICKS_LOAD
   SP_SOLIDWORKS_LOAD
   SP_LOAD_OS_PACKAGES # Load the correct packages for your system for the next steps.
