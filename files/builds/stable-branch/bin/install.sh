@@ -6,9 +6,9 @@
 # Author:       Steve Zabka                                                                                                #
 # Author URI:   https://cryinkfly.com                                                                                      #
 # License:      MIT                                                                                                        #
-# Time/Date:    10:30/13.03.2023                                                                                           #
+# Time/Date:    10:45/13.03.2023                                                                                           #
 # Version:      0.8.0                                                                                                      #
-# Requires:     dialog, wget, lsb-release                                                                                  #
+# Requires:     dialog, wget, lsb-release, coreutils                                                                       #
 ############################################################################################################################
 
 ############################################################################################################################
@@ -29,7 +29,7 @@ NOCOLOR='\033[0m'
 
 # Check if the package "dialog" and "wget" is installed on your system.
 function SP_CHECK_REQUIRED_COMMANDS {
-SP_REQUIRED_COMMANDS=("dialog" "wget" "lsb-release")
+SP_REQUIRED_COMMANDS=("dialog" "wget" "lsb-release" "cat")
     for cmd in "${SP_REQUIRED_COMMANDS[@]}"; do
         echo "Testing presence of ${cmd} ..."
         local path="$(command -v "${cmd}")"
@@ -55,26 +55,26 @@ function SP_INSTALL_REQUIRED_COMMANDS {
 if VERB="$( which apt-get )" 2> /dev/null; then
    echo "Debian-based"
    sudo apt-get update &&
-   sudo apt-get install dialog wget lsb-release software-properties-common
+   sudo apt-get install dialog wget lsb-release coreutils software-properties-common
 elif VERB="$( which dnf )" 2> /dev/null; then
    echo "RedHat-based"
    sudo dnf update &&
-   sudo dnf install dialog wget lsb-release
+   sudo dnf install dialog wget lsb-release coreutils
 elif VERB="$( which pacman )" 2> /dev/null; then
    echo "Arch-based"
-   sudo pacman -Syu --needed dialog wget lsb-release
+   sudo pacman -Syu --needed dialog wget lsb-release coreutils
 elif VERB="$( which zypper )" 2> /dev/null; then
    echo "openSUSE-based"
-   su -c 'zypper up && zypper in dialog wget lsb-release'
+   su -c 'zypper up && zypper in dialog wget lsb-release coreutils'
 elif VERB="$( which xbps-install )" 2> /dev/null; then
    echo "Void-based"
-   sudo xbps-install -Sy dialog wget lsb-release
+   sudo xbps-install -Sy dialog wget lsb-release coreutils
 elif VERB="$( which eopkg )" 2> /dev/null; then
    echo "Solus-based"
-   sudo eopkg install dialog wget lsb-release 
+   sudo eopkg install dialog wget lsb-release coreutils
 elif VERB="$( which emerge )" 2> /dev/null; then
     echo "Gentoo-based"
-    sudo emerge -av dev-util/dialog net-misc/wget sys-apps/lsb-release
+    sudo emerge -av dev-util/dialog net-misc/wget sys-apps/lsb-release sys-apps/coreutils
 else
    echo "I can't find your package manager!"
    exit;
@@ -94,13 +94,21 @@ function SP_CREATE_STRUCTURE {
 function SP_LOCALE_FILES {   
     wget -N -P "$SP_PATH/locale/en-US" --progress=dot "https://github.com/cryinkfly/SOLIDWORKS-for-Linux/raw/main/files/builds/stable-branch/locale/en-US/locale-en.sh" 2>&1 |\
     grep "%" |\
-    sed -u -e "s,\.,,g" | awk '{print $2}' | sed -u -e "s,\%,,g"  | dialog --gauge "Download Locale Index files" 10 100
+    sed -u -e "s,\.,,g" | awk '{print $2}' | sed -u -e "s,\%,,g"  | dialog --gauge "Download Locale files (EN) ..." 10 100
     chmod +x "$SP_PATH/locale/en-US/locale-en.sh"
+    sleep 1
+    wget -N -P "$SP_PATH/locale/en-US" --progress=dot "https://github.com/cryinkfly/SOLIDWORKS-for-Linux/raw/main/files/builds/stable-branch/locale/en-US/license-en.txt" 2>&1 |\
+    grep "%" |\
+    sed -u -e "s,\.,,g" | awk '{print $2}' | sed -u -e "s,\%,,g"  | dialog --gauge "Download Locale files (EN) ..." 10 100
     sleep 1
     wget -N -P "$SP_PATH/locale/de-DE" --progress=dot "https://github.com/cryinkfly/SOLIDWORKS-for-Linux/raw/main/files/builds/stable-branch/locale/de-DE/locale-de.sh" 2>&1 |\
     grep "%" |\
-    sed -u -e "s,\.,,g" | awk '{print $2}' | sed -u -e "s,\%,,g"  | dialog --gauge "Download Locale DE files" 10 100
+    sed -u -e "s,\.,,g" | awk '{print $2}' | sed -u -e "s,\%,,g"  | dialog --gauge "Download Locale files (DE)..." 10 100
     chmod +x "$SP_PATH/locale/de-DE/locale-de.sh"
+    sleep 1
+    wget -N -P "$SP_PATH/locale/en-US" --progress=dot "https://github.com/cryinkfly/SOLIDWORKS-for-Linux/raw/main/files/builds/stable-branch/locale/de-DE/license-de.txt" 2>&1 |\
+    grep "%" |\
+    sed -u -e "s,\.,,g" | awk '{print $2}' | sed -u -e "s,\%,,g"  | dialog --gauge "Download Locale files (DE) ..." 10 100
     sleep 1
 }
 
@@ -108,9 +116,11 @@ function SP_CONFIG_LOCALE {
     if [[ $SP_LOCALE = "02" ]]; then
     # shellcheck source=../locale/de-DE/locale-de.sh
     source "$SP_PATH/locale/de-DE/locale-de.sh"
+    SP_LICENSE_FILE="$SP_PATH/locale/de-DE/license-de.txt"
     else
     # shellcheck source=../locale/en-US/locale-en.sh
     source "$SP_PATH/locale/en-US/locale-en.sh"
+    SP_LICENSE_FILE="$SP_PATH/locale/en-US/license-en.txt"
     fi
     SP_SHOW_LICENSE
 }
