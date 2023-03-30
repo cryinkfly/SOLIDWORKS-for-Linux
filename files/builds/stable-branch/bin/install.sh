@@ -6,9 +6,9 @@
 # Author:       Steve Zabka                                                                                                #
 # Author URI:   https://cryinkfly.com                                                                                      #
 # License:      MIT                                                                                                        #
-# Time/Date:    11:15/13.03.2023                                                                                           #
-# Version:      0.8.0                                                                                                      #
-# Requires:     dialog, wget, lsb-release, coreutils                                                                       #
+# Time/Date:    09:30/30.03.2023                                                                                           #
+# Version:      0.8.1                                                                                                      #
+# Requires:     dialog, wget, lsb_release, coreutils                                                                       #
 ############################################################################################################################
 
 ############################################################################################################################
@@ -29,7 +29,7 @@ NOCOLOR='\033[0m'
 
 # Check if the package "dialog" and "wget" is installed on your system.
 function SP_CHECK_REQUIRED_COMMANDS {
-SP_REQUIRED_COMMANDS=("dialog" "wget" "lsb-release" "cat")
+SP_REQUIRED_COMMANDS=("dialog" "wget" "lsb_release" "cat")
     for cmd in "${SP_REQUIRED_COMMANDS[@]}"; do
         echo "Testing presence of ${cmd} ..."
         local path="$(command -v "${cmd}")"
@@ -143,10 +143,9 @@ function SP_SELECT_SOLIDWORKS_VERSION {
     else
     SP_SOLIDWORKS_LOAD
     fi
-    SP_SELECT_SOLIDWORKS_VERSION
 }
 
-function SP_SELECT_SOLIDWORKS {
+function SP_SELECT_SOLIDWORKS_2 {
     SOLIDWORKS_EXE=$(dialog --backtitle "Setup - SOLIDWORKS for Linux [Build Version 0.8.0]" \
     --title "$SP_SELECT_SOLIDWORKS_SUBTITLE" \
     --stdout --title "$SP_SELECT_SOLIDWORKS_TEXT" \
@@ -482,7 +481,7 @@ function OS_GENTOO_LINUX {
 
 function SP_SOLIDWORKS_INSTALL {
    cd "$SP_PATH/bin/winetricks"
-   WINEPREFIX=$SP_PATH/wineprefixes/solidworks sh winetricks -q atmlib gdiplus corefonts vcrun2019 msxml4 msxml6 dxvk win10 &&
+   WINEPREFIX=$SP_PATH/wineprefixes/solidworks sh winetricks -q atmlib gdiplus corefonts msxml4 msxml6 vcrun2019 ie8 dxvk win10 &&
    WINEPREFIX=$SP_PATH/wineprefixes/solidworks sh winetricks -q win10 &&
    cd "$SP_PATH/downloads/extensions" &&
    wget -N https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/raw/main/files/VBA/vba7.1.zip &&
@@ -546,7 +545,7 @@ function SP_SELECT_SOLIDWORKS_VERSION {
        02 "SOLIDWORKS 2022, 2023, ..." off 3>&1 1>&2 2>&3 3>&-)
   clear
   echo "$SP_SOLIDWORKS_VERSION" >> $SP_PATH/cache/settings.txt
-  SP_SELECT_SOLIDWORKS_VERSION
+  SP_SELECT_SOLIDWORKS_VERSION_2
 }
 
 ###############################################################################################################################################################
@@ -570,7 +569,6 @@ function SP_SELECT_OS_VERSION {
   clear
   echo "$SP_OS_VERSION" >> $SP_PATH/cache/settings.txt
   SP_WINETRICKS_LOAD
-  SP_SOLIDWORKS_LOAD
   SP_LOAD_OS_PACKAGES # Load the correct packages for your system for the next steps.
 }
 
