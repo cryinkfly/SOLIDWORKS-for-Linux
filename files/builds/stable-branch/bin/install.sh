@@ -6,8 +6,8 @@
 # Author:       Steve Zabka                                                                                                #
 # Author URI:   https://cryinkfly.com                                                                                      #
 # License:      MIT                                                                                                        #
-# Time/Date:    09:30/30.03.2023                                                                                           #
-# Version:      0.8.1                                                                                                      #
+# Time/Date:    19:55/26.04.2023                                                                                           #
+# Version:      0.8.2                                                                                                      #
 # Requires:     dialog, wget, lsb_release, coreutils                                                                       #
 ############################################################################################################################
 
@@ -137,7 +137,7 @@ function SP_WINETRICKS_LOAD {
 
 ###############################################################################################################################################################
 
-function SP_SELECT_SOLIDWORKS_VERSION {
+function SP_CHECK_SOLIDWORKS_VERSION {
     if [[ $SP_SOLIDWORKS_VERSION = "02" ]]; then
     SP_SELECT_SOLIDWORKS
     else
@@ -145,7 +145,7 @@ function SP_SELECT_SOLIDWORKS_VERSION {
     fi
 }
 
-function SP_SELECT_SOLIDWORKS_2 {
+function SP_SELECT_SOLIDWORKS {
     SOLIDWORKS_EXE=$(dialog --backtitle "Setup - SOLIDWORKS for Linux [Build Version 0.8.0]" \
     --title "$SP_SELECT_SOLIDWORKS_SUBTITLE" \
     --stdout --title "$SP_SELECT_SOLIDWORKS_TEXT" \
@@ -545,7 +545,7 @@ function SP_SELECT_SOLIDWORKS_VERSION {
        02 "SOLIDWORKS 2022, 2023, ..." off 3>&1 1>&2 2>&3 3>&-)
   clear
   echo "$SP_SOLIDWORKS_VERSION" >> $SP_PATH/cache/settings.txt
-  SP_SELECT_SOLIDWORKS_VERSION_2
+  SP_CHECK_SOLIDWORKS_VERSION
 }
 
 ###############################################################################################################################################################
