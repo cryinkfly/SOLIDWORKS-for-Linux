@@ -484,12 +484,12 @@ function SP_SOLIDWORKS_INSTALL {
    WINEPREFIX=$SP_PATH/wineprefixes/solidworks sh winetricks -q atmlib gdiplus corefonts msxml4 msxml6 vcrun2019 ie8 dxvk win10 &&
    WINEPREFIX=$SP_PATH/wineprefixes/solidworks sh winetricks -q win10 &&
    cd "$SP_PATH/downloads/extensions" &&
-   wget -N https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/raw/main/files/VBA/vba7.1.zip &&
+   wget -N https://github.com/cryinkfly/SOLIDWORKS-for-Linux/raw/main/files/builds/stable-branch/extensions/vba/vba7/vba7.1.zip &&
    unzip vba7.1.zip &&
    cp -r vba7.1/Program*s $SP_PATH/wineprefixes/solidworks/drive_c &&
    cp -r vba7.1/Program*x86* $SP_PATH/wineprefixes/solidworks/drive_c &&
    cp -r vba7.1/windows $SP_PATH/wineprefixes/solidworks/drive_c &&
-   wget -N https://github.com/cryinkfly/SOLIDWORKS-Linux-Wine-Version-/raw/main/files/VBA/vba71-kb2783832-x64.msp &&
+   wget -N https://github.com/cryinkfly/SOLIDWORKS-for-Linux/raw/main/files/builds/stable-branch/extensions/vba/vba7/vba71-kb2783832-x64.msp &&
    WINEPREFIX=$SP_PATH/wineprefixes/solidworks msiexec /p vba71-kb2783832-x64.msp REINSTALL=ALL REINSTALLMODE=omus /qn
    WINEPREFIX=$SP_PATH/wineprefixes/solidworks wine $SOLIDWORKS_EXE &&
    SP_EXIT
