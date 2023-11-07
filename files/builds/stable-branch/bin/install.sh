@@ -129,7 +129,7 @@ function SP_CONFIG_LOCALE {
 
 # Download the newest winetricks version:
 function SP_WINETRICKS_LOAD {
-  wget -N -P "$SP_PATH/bin" --progress=dot "https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks" 2>&1 |\
+  wget -N -P "$SP_PATH/bin/winetricks" --progress=dot "https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks" 2>&1 |\
   grep "%" |\
   sed -u -e "s,\.,,g" | awk '{print $2}' | sed -u -e "s,\%,,g"  | dialog --gauge "Download Winetricks" 10 100
   chmod +x "$SP_PATH/bin/winetricks"
@@ -480,7 +480,7 @@ function OS_GENTOO_LINUX {
 ###############################################################################################################################################################
 
 function SP_SOLIDWORKS_INSTALL {
-   cd "$SP_PATH/bin/"
+   cd "$SP_PATH/bin/winetricks"
    WINEPREFIX=$SP_PATH/wineprefixes/solidworks sh winetricks -q atmlib gdiplus corefonts msxml4 msxml6 vcrun2019 ie8 dxvk win10 &&
    WINEPREFIX=$SP_PATH/wineprefixes/solidworks sh winetricks -q win10 &&
    cd "$SP_PATH/downloads/extensions" &&
