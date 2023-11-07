@@ -129,7 +129,7 @@ function SP_CONFIG_LOCALE {
 
 # Download the newest winetricks version:
 function SP_WINETRICKS_LOAD {
-  wget -N -P "$SP_PATH/bin" --progress=dot "https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks" 2>&1 |\
+  wget -N -P "$SP_PATH/bin/winetricks" --progress=dot "https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks" 2>&1 |\
   grep "%" |\
   sed -u -e "s,\.,,g" | awk '{print $2}' | sed -u -e "s,\%,,g"  | dialog --gauge "Download Winetricks" 10 100
   chmod +x "$SP_PATH/bin/winetricks"
