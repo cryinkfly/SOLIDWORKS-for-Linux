@@ -258,6 +258,10 @@ function OS_DEBIAN {
     DEBIAN_BASED_1
     OS_DEBIAN_11
     DEBIAN_BASED_2
+  elif [[ $OS_DEBIAN_VERSION == *"Debian"*"12"* ]]; then
+    DEBIAN_BASED_1
+    OS_DEBIAN_12
+    DEBIAN_BASED_2
   else
     echo "Your Linux distribution is not supported yet!"
   fi
@@ -287,6 +291,11 @@ function OS_DEBIAN_11 {
   sudo apt-add-repository -r 'deb https://dl.winehq.org/wine-builds/debian/ bullseye main'
   wget -q https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_11//Release.key -O Release.key -O- | sudo apt-key add -
   sudo apt-add-repository 'deb https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_11/ ./'
+}
+
+function OS_DEBIAN_12 {
+  wget -q https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_12//Release.key -O- | sudo gpg --dearmor -o /usr/share/keyrings/opensuse_wine.gpg
+  echo "deb [signed-by=/usr/share/keyrings/opensuse_wine.gpg] https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_12/ ./" | sudo tee /etc/apt/sources.list.d/opensuse_wine.list
 }
 
 ###############################################################################################################################################################
