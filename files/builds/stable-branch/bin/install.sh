@@ -315,6 +315,10 @@ function OS_UBUNTU {
     DEBIAN_BASED_1
     OS_UBUNTU_22
     DEBIAN_BASED_2
+  elif [[ $OS_UBUNTU_VERSION == *"Ubuntu"*"24.04"* ]]; then
+    DEBIAN_BASED_1
+    OS_UBUNTU_24
+    DEBIAN_BASED_2
   elif [[ $OS_UBUNTU_VERSION == *"Linux Mint"*"19"* ]]; then
     DEBIAN_BASED_1
     OS_UBUNTU_18
@@ -348,6 +352,12 @@ function OS_UBUNTU_22 {
   sudo add-apt-repository -r 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
   wget -q https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_22.04/Release.key -O Release.key -O- | sudo apt-key add -
   sudo apt-add-repository 'deb https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_22.04/ ./'
+}
+
+function OS_UBUNTU_24 {
+  sudo add-apt-repository -r 'deb https://dl.winehq.org/wine-builds/ubuntu/ noble main'
+  wget -q https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_24.04/Release.key -O Release.key -O- | sudo apt-key add -
+  sudo apt-add-repository 'deb https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_24.04/ ./'
 }
 
 ###############################################################################################################################################################
