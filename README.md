@@ -1,3 +1,8 @@
+>[!WARNING]
+>This project has been archived here and will be continued on https://codeberg.org/cryinkfly/SOLIDWORKS-on-Linux.
+
+---
+
 ![banner-solidworks](https://user-images.githubusercontent.com/79079633/127905775-f3b47b1e-91a0-40a1-8842-c21a311e8221.png)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/cryinkfly/SOLIDWORKS-for-Linux?style=for-the-badge)
