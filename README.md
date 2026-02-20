@@ -1,5 +1,5 @@
 >[!WARNING]
->This project has been archived here and will be continued on https://codeberg.org/cryinkfly/SOLIDWORKS-on-Linux.
+>This project has been archived here and will be continued on https://codeberg.org/cryinkfly/SolidWorks-on-Linux.
 
 ---
 
